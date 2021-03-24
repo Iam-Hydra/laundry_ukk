@@ -14,7 +14,26 @@ WHERE transaksi.status_bayar = 'Dibayar' GROUP BY detail_transaksi.paket_id");
 
 ?>
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<?php include "../assets/include/header.php"; ?>
+
+<body class="sidebar-fixed sidebar-dark header-light header-fixed" id="body">
+  <script>
+    NProgress.configure({
+      showSpinner: false
+    });
+    NProgress.start();
+  </script>
+
+  <div class="mobile-sticky-body-overlay"></div>
+
+  <div class="wrapper">
+
+    <!-- sidebar -->
+    
+
+    <div class="page-wrapper">
+      <!-- Header -->
+      <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
   <div class="row">
     <ol class="breadcrumb">
       <li><a href="index.php">
@@ -23,15 +42,23 @@ WHERE transaksi.status_bayar = 'Dibayar' GROUP BY detail_transaksi.paket_id");
       <li class="active"><?= $title; ?></li>
     </ol>
   </div><!--/.row-->
-  
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header"><?= $title; ?></h1>
-    </div>
   </div><!--/.row-->
+      <div class="main-header " id="header">
+        <nav class="navbar navbar-static-top navbar-expand-lg">
+          <!-- Sidebar toggle button -->
+          <button id="sidebar-toggler" class="sidebar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <h1 class="ml-5"><?= $title; ?></h1>
+        </nav>
+        </header>
+
+  <div class="content-wrapper">
+    <div class="content">
+
   
-  <div class="panel panel-container">
-  <div class="row">
+    <div class="panel panel-container">
+  <div class="row  bg-white">
       <div class="col-xs-6 col-md-4 col-lg-4 no-padding">
         <div class="panel panel-teal panel-widget border-right">
           <div class="row no-padding"><i class="fa fa-xl fa-hand-holding-usd color-blue"></i>
@@ -58,15 +85,15 @@ WHERE transaksi.status_bayar = 'Dibayar' GROUP BY detail_transaksi.paket_id");
       </div>
     </div><!--/.row-->
   </div>
-
-  <div class="row">
+<br>
+  <div class="row bg-white">
     <div class="col-md-12 col-lg-12 col-sm-12">
       <div class="panel panel-container">
         <div style="padding: 0 30px 30px 30px;">
           <h3 style="padding: 0 0 20px 0;">Laporan Penjualan Paket</h3>
           <div class="table-responsive">
             <table class="table table-bordered thead-dark" id="table">
-              <thead>
+              <thead class="thead-dark">
                 <tr>
                   <th>#</th>
                   <th>Nama Paket</th>
@@ -94,4 +121,23 @@ WHERE transaksi.status_bayar = 'Dibayar' GROUP BY detail_transaksi.paket_id");
       </div>
     </div>
   </div>
+
+          
+    </div>
+  </div>
+      <footer class="footer mt-auto">
+        <div class="copyright bg-white">
+          <p>
+            &copy; <span id="copy-year">2019</span> Copyright Laundry UKK by
+            <a class="text-primary" href="https://github.com/Iam-Hydra" target="_blank">Hydra</a>.
+          </p>
+        </div>
+        <script>
+          var d = new Date();
+          var year = d.getFullYear();
+          document.getElementById("copy-year").innerHTML = year;
+        </script>
+      </footer>
+</body>
+
   <?php require 'footer.php'; ?>
